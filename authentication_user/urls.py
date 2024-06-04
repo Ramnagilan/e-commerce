@@ -8,3 +8,4 @@ urlpatterns = [
     path('logout/',home,name="logout")
    
 ]
+#this for urlpage
