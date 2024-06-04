@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>All products</h1>
+
+<a href="/inventory/productadd/"> <button>Add products</button></a>
+
+
+    <table>
+    
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Product code</th>
+                <th>Price</th>
+                <th>GST</th>
+                <th>Food product</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+       </thead>
+       <tbody>
+            
+            {% for i in x %}
+            <tr>
+                <td>{{i.product_name}}</td>
+                <td>{{i.product_code}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.gst}}</td>
+                <td>{{i.food_product}}</td>
+                <td>
+                    <a href="{% url 'update_data' i.id %}"> <button>Update</button></a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_data' i.id %}"> <button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+         </tbody>
+    </table>
+
+{% endblock %}

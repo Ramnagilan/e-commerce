@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>All orders</h1>
+
+<a href="/orders/add_order/"> <button>Add orders</button></a>
+
+
+    <table>
+    
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Order number</th>
+                <th>Order date</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>GST</th>
+                <th>Bill amount</th>
+                <th>Update</th>
+                <th>Delete</th>
+                
+
+            </tr>
+       </thead>
+       <tbody>
+            
+            {% for i in x %}
+            <tr>
+                <td>{{i.customer_reference}}</td>
+                <td>{{i.product_reference}}</td>
+                <td>{{i.order_number}}</td>
+                <td>{{i.order_date}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.gst}}</td>
+                <td>{{i.bill_amount}}</td>
+                <td>
+                    <a href="{% url 'update_order' i.id %}"> <button>Update</button></a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_order' i.id %}"> <button>Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+         </tbody>
+    </table>
+
+{% endblock %}

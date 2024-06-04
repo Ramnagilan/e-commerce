@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Order add page</h1>
+
+
+<a href="/orders/orders/"> <button>Back</button></a>
+
+<form action="" method="post">
+{% csrf_token %}
+{{order_form.as_p}}
+
+<button type="submit">submit</button>
+</form>
+{% endblock %}
